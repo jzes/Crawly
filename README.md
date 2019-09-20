@@ -1,6 +1,6 @@
 # Crawly Test
 
-Repository developed on the purpose of apply to Crawley senior developer job position.
+Repository developed on the purpose of apply to Crawly senior developer job position.
 
 ## How to run
 
