@@ -1,7 +1,7 @@
 const reqPromise = require('request-promise').defaults({ jar: true });
 
 const mainURL = "http://applicant-test.us-east-1.elasticbeanstalk.com/"
-// Put cookie in an jar which can be used across multiple requests
+
 let PHPSessionID
 
 async function getTokenHTML() {
