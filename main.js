@@ -5,10 +5,9 @@ async function main(){
     let tokenHTML = await robot.getTokenHTML()
     let encryptedToken = parser.getEncryptedTokenFromHTML(tokenHTML)
     let answerHTML = await robot.fetchAnswerHTML(encryptedToken)
-    console.log(answerHTML);
-    //let answer = parser.parseAnswerHTML(answerHTML)
-    //console.log(answer)
+    
+    let answer = parser.parseAnswerHTML(answerHTML)
+    console.log('The answer is.:',answer)
 }
-
 
 main()

@@ -60,6 +60,13 @@ function encryptToken(rawToken){
     return encryptedToken
 }
 
+function parseAnswerHTML(answerHTML){
+    answerHTML = answerHTML.split(':')[1].trim()
+    let $ = cheerio.load(answerHTML)
+    return $('#answer').text()
+}
+
 module.exports = {
-    getEncryptedTokenFromHTML: getEncryptedTokenFromHTML
+    getEncryptedTokenFromHTML: getEncryptedTokenFromHTML,
+    parseAnswerHTML: parseAnswerHTML
 }
