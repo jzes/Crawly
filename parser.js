@@ -40,29 +40,29 @@ const replacements = {
 };
 
 function getEncryptedTokenFromHTML(tokenHTML){
-    var rawToken = getTokenFromHTML(tokenHTML)
-    var encryptedToken = encryptToken(rawToken)
+    const rawToken = getTokenFromHTML(tokenHTML)
+    const encryptedToken = encryptToken(rawToken)
     return encryptedToken
 }
 
 function getTokenFromHTML(tokenHTML){
-    let $ = cheerio.load(tokenHTML)
-    let rawToken = $('#token').attr('value')
+    const $ = cheerio.load(tokenHTML)
+    const rawToken = $('#token').attr('value')
     return rawToken
 }
 
 function encryptToken(rawToken){
-    let splitToken = rawToken.split("")
-    let transformedToken = splitToken.map(character => {
+    const splitToken = rawToken.split("")
+    const transformedToken = splitToken.map(character => {
         return replacements.hasOwnProperty(character) ? replacements[character] : character
     })
-    let encryptedToken = transformedToken.join("")
+    const encryptedToken = transformedToken.join("")
     return encryptedToken
 }
 
 function parseAnswerHTML(answerHTML){
     answerHTML = answerHTML.split(':')[1].trim()
-    let $ = cheerio.load(answerHTML)
+    const $ = cheerio.load(answerHTML)
     return $('#answer').text()
 }
 

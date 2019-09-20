@@ -6,18 +6,18 @@ let PHPSessionID
 
 async function getTokenHTML() {
 
-    let options = {
+    const options = {
         method: 'GET',
         uri: mainURL,
         resolveWithFullResponse: true
     };
 
     try {
-        let response = await reqPromise(options)
+        const response = await reqPromise(options)
         fillPHPSessionID(response)
         return response.body
     } catch (err) {
-        console.log('Token request cannot be completed\n', err)
+        console.log('Token request cannot be compconsted\n', err)
         process.abort()
     }
 }
@@ -30,7 +30,7 @@ function fillPHPSessionID(response){
 }
 
 async function fetchAnswerHTML(encryptedToken) {
-    let options = {
+    const options = {
         method: 'POST',
         uri: mainURL,
         headers:
@@ -50,12 +50,11 @@ async function fetchAnswerHTML(encryptedToken) {
         },
         form:
         {
-            token: encryptedToken,
-            undefined: undefined
+            token: encryptedToken
         }
     }
 
-    let html = await reqPromise(options)
+    const html = await reqPromise(options)
     return html
 }
 
